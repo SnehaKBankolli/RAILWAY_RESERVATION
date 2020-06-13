@@ -7,10 +7,10 @@ It is a simple railway booking application which helps us to:
 3. Book Train Tickets
 
 ## Steps to execute the code
-python manage.py makemigrations railway
-python manage.py makemigrations registration
-python manage.py migrate
-python manage.py runserver
+1. python manage.py makemigrations railway
+2. python manage.py makemigrations registration
+3. python manage.py migrate
+4. python manage.py runserver
 
 URL for sign-up page is: http://127.0.0.1:8000/register/
 
