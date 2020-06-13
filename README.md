@@ -14,4 +14,8 @@ python manage.py runserver
 
 URL for sign-up page is: http://127.0.0.1:8000/register/
 
+## Landing Page
+
+![railway_resrvation](https://user-images.githubusercontent.com/54764295/84575821-c304e400-adcd-11ea-8481-8c240abcde5a.png)
+
 
