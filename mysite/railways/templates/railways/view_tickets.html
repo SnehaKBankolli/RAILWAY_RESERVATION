@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Railway booking System</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+
+</head>
+
+<style>
+    body{
+background: url(https://wallpaperlayer.com/img/2015/7/train-wallpaper-8787-9115-hd-wallpapers.jpg);
+background-size:cover;
+/* background-position: center; */
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+h1{
+    font-size: 50px;
+    text-align: center;
+    font-weight: bolder;
+    color: black;
+}
+p{
+    text-align: center;
+    font-size: 15px;
+    color:black;
+}
+a{
+    color: whitesmoke;
+}
+.div1{
+    margin-top: 4%;
+    background: gray;
+    background-size:cover;
+    width: 90%;
+    padding-left:5%;
+    padding-right: 5%;
+     margin-left: 5%;
+    /* margin-right: 30%;  */
+    
+}
+
+
+.parallax {
+  /* The image used */
+  background: black;
+
+  /* Set a specific height */
+  min-height: 500px; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* background-position: center; */
+
+* Create four equal columns that floats next to each other */
+
+  
+</style>
+
+
+
+   
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark" style=" background-color:rgba(0,0,0,0.5);">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" style="color: black; font-weight: bold;"  href="http://127.0.0.1:8000/"><i class="fa fa-train" aria-hidden="true"></i> Train Booking</a>
+      </div>
+  
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+         <li class="active"><a href="http://127.0.0.1:8000/">Home</a></li>
+         <li><a href="http://127.0.0.1:8000/view_tickets/{{ user.username}}">View Tickets </i></a></li>
+        </ul>
+       
+        <ul class="nav navbar-nav navbar-right">
+         <li><a href="http://127.0.0.1:8000/register/">Signup  <i class="fa fa-user-plus"></i></a></li>
+          <li><a href="http://127.0.0.1:8000/login/">Login  <i class="fa fa-user"></i></a></li>
+          <li><a href="http://127.0.0.1:8000/admin/">Admin <i class="fa fa-user-circle-o"></i></a></li>
+       
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+  
+
+
+<div class="div1" style="border-radius: 2%; opacity: 0.7; background-color: black;" >
+    <p class="display-4" style="color: white; font-size: 20px; opacity:1; font-weight: bold; ">Train tickets booked are:</p>
+    <br>
+    <div class="pure-g">
+        <div class="pure-u-1-6"><p style="  background: black; border: black; color: white; font-weight: bold;border: 2px solid #ffffff;">Name</p></div>
+        <div class="pure-u-1-6"><p style="  background: black;  border: black; color: white;font-weight: bold;border: 2px solid #ffffff;">Gender</p></div>
+        <div class="pure-u-1-6"><p style=" background:  black;  border: black; color: white;font-weight: bold;border: 2px solid #ffffff;">Train</p></div>
+        <div class="pure-u-1-6"><p style="  background: black;  border: black; color: white;font-weight: bold;border: 2px solid #ffffff;">Ticket cost</p></div>
+        <div class="pure-u-1-6"><p style="  background: black;  border: black; color: white;font-weight: bold;border: 2px solid #ffffff;">Seat number</p></div>
+        <div class="pure-u-1-6"><p style="  background: black;  border: black; color: white;font-weight: bold;border: 2px solid #ffffff;">Date/Time</p></div>
+        
+      </div>
+{% for ticket in tickets %}
+<div class="pure-g">
+    <div class="pure-u-1-6"><p style="  background: whitesmoke; border: black; font-weight: bold ;">{{ ticket.ticket_name }}</p></div>
+    <div class="pure-u-1-6"><p style="  background: whitesmoke;  border: black; font-weight: bold;">{{ ticket.gender }}<div></div></p></div>
+    <div class="pure-u-1-6"><p style=" background:  whitesmoke;  border: black; font-weight: bold;">{{ ticket.train }}</p></div>
+    <div class="pure-u-1-6"><p style="  background: whitesmoke;  border: black; font-weight: bold; ">Rs. {{ ticket.cost }}</p></div>
+    <div class="pure-u-1-6"><p style="  background: whitesmoke;  border: black; font-weight: bold; ">{{ ticket.number }}</p></div>
+    <div class="pure-u-1-6"><p style="  background: whitesmoke;  border: black; font-weight: bold;">{{ ticket.date }}/{{ ticket.time }}</p></div>
+   
+
+  </div>
+
+
+
+{%endfor%}
+</div>
+
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
+
+</body>

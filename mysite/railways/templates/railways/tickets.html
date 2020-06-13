@@ -1,0 +1,142 @@
+<head>
+	<title>Railway booking System</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Muli:400,700&display=swap" rel="stylesheet">
+</head>
+
+<style>
+	h1{
+           color:#202229;
+           text-align:center;
+         }
+        body{
+  background: url(https://wallpaperlayer.com/img/2015/7/train-wallpaper-8787-9115-hd-wallpapers.jpg);
+  background-size:cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.labels{
+    font-size: 15px;
+    color:darkslategray;
+}
+.login{
+          
+		  background: white;
+		  border-radius: 5%;  
+		  margin-left: 10%;
+		  margin-right:10%; 
+      margin-top: 5%;
+		  padding:1%;
+
+			  }
+
+    hr.style-eight {
+    overflow: visible; /* For IE */
+    padding: 0;
+    border: none;
+    border-top: medium double #333;
+    color: #333;
+    text-align: center;
+}
+hr.style-eight:after {
+    content: "§";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.5em;
+    padding: 0 0.25em;
+    background: white;
+}
+
+
+</style>
+<nav class="navbar-fixed-top" style=" background-color:rgba(0,0,0,0.5);">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" style="color: black; font-weight: bold;"  href="http://127.0.0.1:8000/"><i class="fa fa-train" aria-hidden="true"></i> Train Booking</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+       <li class="active"><a href="http://127.0.0.1:8000/">Home</a></li>
+       <li><a href="http://127.0.0.1:8000/view_tickets/{{ user.username}}">View Tickets </i></a></li>
+      </ul>
+     
+      <ul class="nav navbar-nav navbar-right">
+       <li><a href="http://127.0.0.1:8000/register/">Signup  <i class="fa fa-user-plus"></i></a></li>
+        <li><a href="http://127.0.0.1:8000/login/">Login  <i class="fa fa-user"></i></a></li>
+        <li><a href="http://127.0.0.1:8000/admin/">Admin <i class="fa fa-user-circle-o"></i></a></li>
+     
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+  
+<body>
+
+    <div class="login">
+
+      <p style="font-size: 40px; color: crimson; text-align: center;">{{trains.train_name}}</p>
+
+      
+      <p style="font-size: 20px; color: crimson; text-align: left;">Train Details</p>
+      <label for="source" class="labels">Starting point:</label>
+
+
+      <p name="source" id="source" style="color: navy; font-weight: bold;">{{trains.source}}</p>
+      <label for="destination" class="labels">Ending Point:</label>
+      <p name="destination" id="destination" style="color: navy; font-weight: bold;">{{trains.destination}}</p>
+      
+      <label for="number" class="labels">Seats available</label>
+      <p name="number" id="number" style="color: navy; font-weight: bold;">{{trains.number}}</p>
+      
+      <label for="cost" class="labels">Cost:</label>
+      <p name="cost" id="cost" style="color: navy; font-weight: bold;">{{trains.cost}}</p>
+
+      <label for="date" class="labels">Date:</label>
+      <p name="date" id="date" style="color: navy; font-weight: bold;">{{trains.date}}</p>
+      
+      <label for="time" class="labels">Time:</label>
+      <p name="time" id="time" style="color: navy; font-weight: bold;">{{trains.time}}</p>
+
+        <br>
+        <hr style="font-weight: 500;">
+        <p style="font-size: 20px; color: crimson; text-align: left;">User Details</p>
+        <label for="user" class=labels>Username:</label>
+        <p name="user",id="user" style="color: navy; font-weight: bold;">{{user.username}}</p>
+        <label for="email" class=labels >email:</label>
+        <p name="email",id="email" style="color: navy; font-weight: bold;">{{user.email}}</p>
+
+      
+<form action="" method="POST">
+  {% csrf_token %}
+    
+  <label for="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" class=labels >gender:</label>
+        <select class="form-control" id="gender" name="gender" style="width: 10%;">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+        <br>
+    <button type="submit" class="btn btn-primary">Confirm booking</button>
+    <br>
+    <br>
+    <label for="email" class=labels >View your tickets:</label>
+    <a href="http://127.0.0.1:8000/view_tickets/{{ user.username}}" style="color: navy; font-weight: bold;">view tickets</a>
+</form>
+
+
+
+</div>
+</body>

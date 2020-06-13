@@ -1,0 +1,12 @@
+D1 batch even USN’s
+1.Create a django application 
+a) Create a Railway reservation application, which includes the details of ’Railway’, 'source’, ’destination’,
+ b) It shall display a list of Railway names.
+ c) When clicked on any Railway, it shall show the details of the selected Railway (time, source, destination) booking of selected Railway.
+ d) Save all the details and display.
+e)User should be provided to reserve the ticket.
+
+        Website(mysite)
+        /           \
+       /             \
+    Railway(app1)      register(app2)
