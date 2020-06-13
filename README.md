@@ -7,7 +7,7 @@ It is a simple railway booking application which helps us to:
 3. Book Train Tickets
 
 ## Steps to execute the code
-1. python manage.py makemigrations railway
+1. python manage.py makemigrations railways
 2. python manage.py makemigrations registration
 3. python manage.py migrate
 4. python manage.py runserver
